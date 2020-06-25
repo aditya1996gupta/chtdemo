@@ -67,7 +67,7 @@ export default {
         datasets: [
           {
             label: "Data One",
-            backgroundColor: "#f87979",
+            backgroundColor: "orange",
             // Data for the x-axis of the chart
             data: [
               this.getRandomInt(),
