@@ -26,44 +26,72 @@
 </template>
 
 <script>
-  import LineChart from '@/components/LineChart'
-  import BarChart from '@/components/BarChart'
-  import BubbleChart from '@/components/BubbleChart'
-  import Reactive from '@/components/Reactive'
+import LineChart from "@/components/LineChart";
+import BarChart from "@/components/BarChart";
+import BubbleChart from "@/components/BubbleChart";
+import Reactive from "@/components/Reactive";
 
-  export default {
-    name: 'VueChartJS',
-    components: {
-      LineChart,
-      BarChart,
-      BubbleChart,
-      Reactive
+export default {
+  name: "VueChartJS",
+  components: {
+    LineChart,
+    BarChart,
+    BubbleChart,
+    Reactive
+  },
+  data() {
+    return {
+      datacollection: null
+    };
+  },
+  created() {
+    this.fillData();
+  },
+  methods: {
+    fillData() {
+      this.datacollection = {
+        labels: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ],
+        datasets: [
+          {
+            label: "Data One",
+            backgroundColor: "#f87979",
+            // Data for the x-axis of the chart
+            data: [
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt(),
+              this.getRandomInt()
+            ]
+          }
+        ]
+      };
     },
-    data () {
-      return {
-        datacollection: null
-      }
-    },
-    created () {
-      this.fillData()
-    },
-    methods: {
-      fillData () {
-        this.datacollection = {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-          datasets: [
-            {
-              label: 'Data One',
-              backgroundColor: '#f87979',
-              // Data for the x-axis of the chart
-              data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
-            }
-          ]
-        }
-      },
-      getRandomInt () {
-        return Math.floor(Math.random() * (50 - 5 + 1)) + 5
-      }
+    getRandomInt() {
+      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
     }
   }
+};
 </script>
